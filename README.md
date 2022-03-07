@@ -1,5 +1,6 @@
 
 # Spoofify
+<p align="center"><img src="https://user-images.githubusercontent.com/1617638/156982404-3a99f2a9-b6c1-404c-b496-e026019b6122.png" width="400"></p>
 
 A registered user of Spoofify account will be able to connect and see a list of Latest-releases and also a list of Featured Playlists.
 
@@ -128,4 +129,6 @@ This avoids the need to have a variable track the status of API call through use
 
 ##### Using custom hooks
 Putting every piece of data in the Redux store bloats the application. To avoid this only reusable data is stored the store. Component specific data was confined to the component by implementation of `useFetch` custom hook over createAsyncThunk.
+
+
 
