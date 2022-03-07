@@ -12,5 +12,6 @@ COPY ./server/package-lock.json /app/server
 COPY ./server/package.json /app/server
 COPY --from=client /app/client/build /app/server/build
 RUN npm i && npm cache clean --force
+COPY ./.env.production.local /app/server/
 COPY ./server /app/server
 CMD ["npm", "run", "build"]
