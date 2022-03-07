@@ -12,6 +12,14 @@ git clone https://github.com/sachinnair/spoofify.git
 cd spoofify
 ```
 
+### Need of secrets file:
+
+You will need an .env.production.local file to access web apis of spotify. This will be shared on request. Once received paste it in root folder of project.
+```
+PWD // <Project Checkout path>/
+```
+It should be the same level as `Dockerfile`
+
 ### Using Docker
 
 ```
@@ -44,7 +52,7 @@ Manually copy the **build** folder generated inside **client** folder and paste 
 
 For running the server locally:
 ```
-pwd // <Project Checkout path>/spoofify/client/
+pwd // <Project Checkout path>/client/
 cd ../server
 npm run build
 ```
