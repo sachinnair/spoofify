@@ -1,0 +1,16 @@
+.LoaderHolder {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1A1F27;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.LogoHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

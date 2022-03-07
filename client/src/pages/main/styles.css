@@ -1,0 +1,13 @@
+.TogglerButton{
+    background: transparent;
+    color: white;
+}
+
+.TogglerButton--active {
+    background-color: #919397;
+    font-weight: bold;
+}
+
+.display{
+    display: none;
+}

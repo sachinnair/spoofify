@@ -1,0 +1,41 @@
+.Card {
+    background: #1d222a;
+    color: white;
+    text-align: left;
+    display: flex;
+    border-bottom: 0.01rem solid #464950;
+
+}
+
+.Card:active {
+    background-color: #919397;
+    font-weight: bold;
+}
+.Card:hover {
+    background-color: #919397;
+    font-weight: bold;
+}
+
+.Card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 1rem;
+}
+
+.Card-info a:link {
+    color: white;
+    background-color: transparent;
+}
+  
+.Card-info a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.Card-info a:hover {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+}

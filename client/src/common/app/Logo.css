@@ -1,0 +1,15 @@
+.Logo-image {
+  height: 2em;
+  border-radius: 2em;
+  pointer-events: none;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: grey;
+}
+
+.Logo-text {
+  color: white;
+  /* font-size: calc(10px + 2vmin); */
+  font-size: 2rem;
+}

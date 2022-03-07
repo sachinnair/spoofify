@@ -1,0 +1,22 @@
+{
+    "Product": {
+        "Title": "Spoofify"
+    },
+    "Pages": {
+        "MainFrame": {
+            "Toggler": {
+                "Button1": {
+                    "name": "Latest"
+                },
+                "Button2": {
+                    "name": "Featured"
+                }
+            }
+        }
+    },
+    "Components": {
+        "Genre": {
+            "SET": "SET MY MOOD"
+        }
+    }
+}

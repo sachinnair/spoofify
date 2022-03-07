@@ -1,0 +1,13 @@
+{
+    "spotify": {
+        "browse": {
+            "latest-releases": {
+                "url": "https://api.spotify.com/v1/browse/new-releases",
+                "method": "GET",
+                "params": ["country", "limit", "offset"]
+            },    
+            "playlist": "",
+            "genre": ""
+        }
+    }
+}
