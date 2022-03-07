@@ -9,13 +9,14 @@
 
 var express = require('express'); // Express web server framework
 var request = require('request'); // "Request" library
+const path = require('path')
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = 'CLIENT_ID'; // Your client id
-var client_secret = 'CLIENT_SECRET'; // Your secret
-var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+var client_id = 'cb9c18415c0c4cc9a9e8ae30b85c07a2'; // Your client id
+var client_secret = 'e7eda565bedc4447bba27929d6f4771f'; // Your secret
+var redirect_uri = 'http://localhost:3000/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -34,28 +35,11 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
+var dbObject = {}
+
 var app = express();
-
-app.use(express.static(__dirname + '/public'))
-   .use(cors())
+app.use(cors())
    .use(cookieParser());
-
-app.get('/login', function(req, res) {
-
-  var state = generateRandomString(16);
-  res.cookie(stateKey, state);
-
-  // your application requests authorization
-  var scope = 'user-read-private user-read-email';
-  res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: client_id,
-      scope: scope,
-      redirect_uri: redirect_uri,
-      state: state
-    }));
-});
 
 app.get('/callback', function(req, res) {
 
@@ -72,7 +56,7 @@ app.get('/callback', function(req, res) {
         error: 'state_mismatch'
       }));
   } else {
-    res.clearCookie(stateKey);
+    // res.clearCookie(stateKey);
     var authOptions = {
       url: 'https://accounts.spotify.com/api/token',
       form: {
@@ -143,5 +127,29 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log('Listening on 8888');
-app.listen(8888);
+
+app.get('/', function(req, res, next) {
+  if(req.cookies && req.cookies[stateKey]) {
+    next();
+  } else {
+    var state = generateRandomString(16);
+    res.cookie(stateKey, state);
+  
+    // your application requests authorization
+    var scope = 'user-read-private user-read-email';
+    res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+        state: state
+      }));
+  }
+});
+
+app.use(express.static(path.join(__dirname, 'build')))
+
+const port = 3000;
+console.log("App is successfull running on: ", port)
+app.listen(port);

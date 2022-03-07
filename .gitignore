@@ -15,7 +15,8 @@ client/notes
 /coverage
 
 # production
-/build
+client/build
+server/build
 
 # misc
 .DS_Store
