@@ -33,7 +33,7 @@ You may add following line inside *client/package.json*
 ```
 "scripts": {
     ...
-    "postbuild": "BUILD_PATH=../server/build react-scripts build",
+    "build": "BUILD_PATH=../server/build react-scripts build",
     ...
 }
 ```
